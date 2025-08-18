@@ -1,0 +1,20 @@
+name: Generator - Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "generator/**"
+      - "static/**"
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-image.yml
+    with:
+      docker-context: ./
+      dockerfile: ./generator/Dockerfile
+      image-name: generator
+    secrets:
+      GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}

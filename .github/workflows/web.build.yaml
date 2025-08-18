@@ -1,0 +1,19 @@
+name: Web Server - Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "web/**"
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-image.yml
+    with:
+      docker-context: ./
+      dockerfile: ./web/Dockerfile
+      image-name: web-service
+    secrets:
+      GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}

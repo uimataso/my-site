@@ -1,0 +1,35 @@
+networks:
+  default:
+    name: my-site-network
+
+services:
+  web:
+    image: my-site-web:latest
+    build:
+      context: ./
+      dockerfile: ./web/Dockerfile
+    container_name: my-site-web
+    restart: no
+    volumes:
+      - /tmp/my-site-output:/data
+    ports:
+      - 5000:5000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/healthcheck"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 5s
+
+  generator:
+    image: my-site-generator:latest
+    build:
+      context: ./
+      dockerfile: ./generator/Dockerfile
+    container_name: my-site-generator
+    restart: no
+    # user: "1000:100"
+    volumes:
+      - /tmp/my-site-content:/source
+      - /tmp/my-site-output:/output
+      # - ./static:/static

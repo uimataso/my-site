@@ -1,0 +1,21 @@
+[package]
+name = "my-site-web"
+version = "0.1.0"
+license = "MIT"
+edition = "2024"
+
+[lints]
+workspace = true
+
+[dependencies]
+anyhow = "1.0"
+tokio = { version = "1", features = ["full"] }
+axum = "0.8"
+
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+tower = "0.5"
+tower-http = { version = "0.6", features = ["fs", "trace", "normalize-path"] }
+
+envconfig = "0.11"

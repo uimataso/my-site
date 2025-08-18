@@ -1,0 +1,97 @@
+@import "reset.css";
+@import "article.css";
+@import "blog.css";
+@import "nav.css";
+@import "footer.css";
+
+:root {
+  --base00: #161616;
+  --base01: #303030;
+  --base02: #454545;
+  --base03: #808080;
+  --base04: #9b9b9b;
+  --base05: #bcbcbc;
+  --base06: #dddddd;
+  --base07: #f5f5f5;
+  --base08: #ea6962;
+  --base09: #e78a4e;
+  --base0A: #d8a657;
+  --base0B: #a9b665;
+  --base0C: #89b482;
+  --base0D: #7daea3;
+  --base0E: #d3869b;
+  --base0F: #bd6f3e;
+  --t: #00ff00;
+}
+
+body {
+  /* font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; */
+  font-family: Menlo, DejaVu Sans Mono, monospace;
+
+  color: var(--base05);
+  background-color: var(--base00);
+
+  max-width: 55em;
+  padding: 0em 2.5em;
+  margin: 0 auto;
+}
+
+main {
+  margin: 2em auto;
+}
+
+a {
+  text-decoration: underline;
+  text-decoration-color: var(--base0C);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+}
+
+a:hover {
+  text-decoration-color: var(--base04);
+}
+
+pre,
+code {
+  font-family: Menlo, DejaVu Sans Mono, monospace;
+
+  color: var(--base06);
+  background: var(--base01);
+}
+
+code {
+  padding: 0.1em 0.3em;
+}
+
+pre {
+  padding: 1em;
+  overflow-x: auto;
+}
+
+ul li::marker {
+  content: "- ";
+  font-weight: bold;
+}
+
+
+table {
+  border-collapse: collapse;
+  margin: 1em;
+}
+
+tbody tr {
+  border-top: 2px solid var(--base02);
+  margin: 0.5em 0;
+}
+
+td,
+th {
+  padding: 0.3em 1em;
+}

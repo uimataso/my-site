@@ -1,0 +1,6 @@
+.direnv/
+**Dockerfile
+**.git/
+result/
+**target/
+.venv
