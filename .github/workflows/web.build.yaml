@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/build-image.yml
+    uses: ./.github/workflows/build.yaml
     with:
       docker-context: ./
       dockerfile: ./web/Dockerfile
