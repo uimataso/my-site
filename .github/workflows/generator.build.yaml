@@ -16,5 +16,3 @@ jobs:
       docker-context: ./
       dockerfile: ./generator/Dockerfile
       image-name: generator
-    secrets:
-      GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}

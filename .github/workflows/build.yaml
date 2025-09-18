@@ -15,9 +15,13 @@ on:
         description: "Image name (without repository prefix)"
         required: true
         type: string
-    secrets:
-      GHCR_TOKEN:
-        required: true
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE_REPO: "ghcr.io/uimataso"
 
 jobs:
   build_image_and_push_to_ghcr:
@@ -46,7 +50,7 @@ jobs:
           context: ${{ inputs.docker-context }}
           file: ${{ inputs.dockerfile }}
           push: true
-          tags: ghcr.io/${{ github.actor }}/${{ inputs.image-name }}:${{ steps.short_sha.outputs.SHORT_SHA }}
+          tags: ${{ env.IMAGE_REPO }}/${{ inputs.image-name }}:${{ steps.short_sha.outputs.SHORT_SHA }}
 
     outputs:
       imageTag: ${{ steps.short_sha.outputs.SHORT_SHA }}

@@ -15,5 +15,3 @@ jobs:
       docker-context: ./
       dockerfile: ./web/Dockerfile
       image-name: web-service
-    secrets:
-      GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
