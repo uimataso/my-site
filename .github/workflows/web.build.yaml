@@ -18,4 +18,4 @@ jobs:
     with:
       docker-context: ./
       dockerfile: ./web/Dockerfile
-      image-name: web-service
+      image-name: my-site-web-service

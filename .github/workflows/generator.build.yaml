@@ -19,4 +19,4 @@ jobs:
     with:
       docker-context: ./
       dockerfile: ./generator/Dockerfile
-      image-name: generator
+      image-name: my-site-generator
