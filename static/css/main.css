@@ -24,12 +24,14 @@
   --t: #00ff00;
 }
 
+html {
+  color: var(--base05);
+  background-color: var(--base00);
+}
+
 body {
   /* font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; */
   font-family: Menlo, DejaVu Sans Mono, monospace;
-
-  color: var(--base05);
-  background-color: var(--base00);
 
   max-width: 55em;
   padding: 0em 2.5em;
