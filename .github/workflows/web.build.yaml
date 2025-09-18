@@ -8,6 +8,10 @@ on:
     paths:
       - "web/**"
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     uses: ./.github/workflows/build.yaml

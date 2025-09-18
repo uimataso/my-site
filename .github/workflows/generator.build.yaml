@@ -9,6 +9,10 @@ on:
       - "generator/**"
       - "static/**"
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     uses: ./.github/workflows/build.yaml
