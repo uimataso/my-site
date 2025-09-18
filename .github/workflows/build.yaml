@@ -51,6 +51,8 @@ jobs:
           file: ${{ inputs.dockerfile }}
           push: true
           tags: ${{ env.IMAGE_REPO }}/${{ inputs.image-name }}:${{ steps.short_sha.outputs.SHORT_SHA }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
     outputs:
       imageTag: ${{ steps.short_sha.outputs.SHORT_SHA }}
