@@ -73,7 +73,8 @@ code {
 }
 
 pre {
-  padding: 1em;
+  margin: 1.5em 1em;
+  padding: 0.75em;
   overflow-x: auto;
 }
 

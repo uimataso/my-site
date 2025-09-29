@@ -33,7 +33,7 @@ article {
   blockquote {
     position: relative;
     padding: 0.1em 1em;
-    margin: 1em;
+    margin: 1.5em 1em;
     color: var(--base04);
     border-left: 0.3rem solid var(--base02);
   }
@@ -92,6 +92,7 @@ article {
   }
 
   .markdown-alert {
+    margin: 1.5em 1em;
     border-color: var(--alert-color, var(--base02));
     background-color: color-mix(in srgb, var(--alert-color, var(--base02)) 10%, transparent);
   }
