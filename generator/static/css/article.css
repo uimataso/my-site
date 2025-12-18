@@ -1,0 +1,81 @@
+article {
+  margin: auto 1rem;
+}
+
+article {
+  >* {
+    margin: 2ch auto;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h3 {
+    font-size: 1.4em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 1em -1rem;
+    font-weight: bold;
+  }
+
+
+  section.footnotes {
+    border-top: 1px solid var(--base02);
+    margin-top: 2em;
+  }
+
+  blockquote,
+  .markdown-alert {
+    position: relative;
+    padding: 0 2ch;
+    margin: 1.5em 1ch;
+    color: var(--base04);
+  }
+
+  blockquote::before,
+  .markdown-alert::before {
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: -0.3em;
+    bottom: -0.3em;
+    width: 3px;
+    background: var(--base02);
+  }
+
+  p.markdown-alert-title {
+    font-weight: bold;
+    color: var(--alert-color, var(--base02));
+  }
+
+  .markdown-alert-note {
+    --alert-color: var(--base05);
+  }
+
+  .markdown-alert-tip {
+    --alert-color: var(--base0B);
+  }
+
+  .markdown-alert-important {
+    --alert-color: var(--base0A);
+  }
+
+  .markdown-alert-warning {
+    --alert-color: var(--base09);
+  }
+
+  .markdown-alert-caution {
+    --alert-color: var(--base08);
+  }
+}

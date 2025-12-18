@@ -1,5 +1,7 @@
 use hypertext::{Raw, prelude::*};
 
+use crate::pages;
+
 #[derive(Clone)]
 pub struct Article<'a> {
     pub raw_html: &'a str,
@@ -8,7 +10,7 @@ pub struct Article<'a> {
 impl Renderable for Article<'_> {
     fn render_to(&self, buffer: &mut hypertext::Buffer<hypertext::context::Node>) {
         rsx! {
-            <article class="markdown">
+            <article>
                 (Raw::dangerously_create(&self.raw_html))
             </article>
         }

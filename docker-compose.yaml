@@ -28,8 +28,8 @@ services:
       dockerfile: ./generator/Dockerfile
     container_name: my-site-generator
     restart: no
-    # user: "1000:100"
+    user: "1000:100"
     volumes:
-      - /tmp/my-site-content:/source
+      - ~/src/my-site-content:/source:ro
       - /tmp/my-site-output:/output
-      # - ./static:/static
+      - ./static:/static

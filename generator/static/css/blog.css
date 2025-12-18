@@ -1,0 +1,43 @@
+.blog-info *,
+.blog-list * {
+  margin: 0;
+}
+
+.blog-info {
+  color: var(--base04);
+  margin: 0em 2em;
+}
+
+.blog-info,
+.blog-entry {
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.blog-list {
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul li::marker {
+    content: none;
+  }
+
+  .blog-entry {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 1.5em;
+  }
+
+  .blog-date p,
+  .blog-tags p {
+    color: var(--base04)
+  }
+}

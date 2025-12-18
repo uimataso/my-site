@@ -1,0 +1,46 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1ch 1ch;
+  margin: 0;
+  border-bottom: 2px solid var(--base02);
+}
+
+header {
+  a {
+    color: var(--base05);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.2em 1ch;
+  }
+
+  .header-links a.active,
+  .header-links a.active:hover {
+    background-color: var(--base05);
+    color: var(--base00);
+  }
+
+  .header-home a:hover,
+  .header-links a:hover {
+    background-color: var(--base01);
+  }
+}
+
+footer {
+  border-top: 2px solid var(--base02);
+  color: var(--base04);
+  display: flex;
+  justify-content: space-between;
+  padding: auto 3ch;
+}
+
+footer {
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

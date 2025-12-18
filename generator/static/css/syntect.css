@@ -1,0 +1,27 @@
+.source {
+  * {
+    color: var(--base05);
+  }
+
+  .storage {
+    font-weight: bold;
+  }
+
+  .punctuation {
+    color: var(--base03);
+  }
+
+  .comment {
+    color: var(--base03);
+  }
+
+  .constant,
+  .string,
+  .string.punctuation {
+    color: var(--base09);
+  }
+
+  .escape {
+    color: var(--base08);
+  }
+}
