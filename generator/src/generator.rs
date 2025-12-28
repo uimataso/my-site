@@ -1,5 +1,5 @@
 use std::{
-    collections::{HashMap, HashSet},
+    collections::HashMap,
     fs,
     io::Write as _,
     path::{Path, PathBuf},
@@ -18,7 +18,6 @@ pub struct Generator {
     dst_dir: PathBuf,
     config: Config,
     git_repo: GitRepo,
-    skip: HashSet<&'static Path>,
     gitignore: ignore::gitignore::Gitignore,
 
     all_blog: Vec<BlogEntry>,
@@ -63,15 +62,6 @@ impl Generator {
         log::info!("read config from: {}", config_file.display());
         let config = Config::from_file(src_dir.join(config_file))?;
 
-        let skip = [
-            ".git",
-            ".gitignore",
-            ".cspell.yaml",
-            "README.md",
-            "config.yaml",
-        ];
-        let skip: HashSet<_> = skip.into_iter().map(Path::new).collect();
-
         log::info!("read gitignore");
         let (gitignore, _err) = ignore::gitignore::Gitignore::new(src_dir.join(".gitignore"));
 
@@ -80,7 +70,6 @@ impl Generator {
             dst_dir,
             config,
             git_repo,
-            skip,
             gitignore,
             all_blog: Vec::new(),
         })
@@ -137,7 +126,7 @@ impl Generator {
                 continue;
             };
 
-            if self.skip.contains(&rel_path) {
+            if self.config.skip.contains(rel_path) {
                 continue;
             }
 

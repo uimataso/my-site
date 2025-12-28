@@ -1,4 +1,5 @@
 use std::{
+    collections::HashSet,
     fs,
     path::{Path, PathBuf},
 };
@@ -12,6 +13,9 @@ pub struct Config {
     pub site_name: String,
     pub site_url: String,
     pub commit_base_url: String,
+
+    #[serde(default)]
+    pub skip: HashSet<PathBuf>,
 
     pub header: Header,
     pub footer: Footer,
