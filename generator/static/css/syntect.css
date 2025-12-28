@@ -1,4 +1,5 @@
-.source {
+.source,
+.syntax-highlighting {
   * {
     color: var(--base05);
   }
@@ -17,7 +18,8 @@
 
   .constant,
   .string,
-  .string.punctuation {
+  .string.punctuation,
+  .quoted.double {
     color: var(--base09);
   }
 
