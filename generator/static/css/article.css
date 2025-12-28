@@ -1,10 +1,10 @@
 article {
-  margin: auto 1rem;
+  margin: inherit 1rem;
 }
 
 article {
   >* {
-    margin: 2ch auto;
+    margin: 2ch inherit;
   }
 
   h1 {

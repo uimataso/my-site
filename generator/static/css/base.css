@@ -32,7 +32,7 @@ footer {
   color: var(--base04);
   display: flex;
   justify-content: space-between;
-  padding: auto 3ch;
+  padding: inherit 3ch;
 }
 
 footer {

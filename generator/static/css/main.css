@@ -92,7 +92,7 @@ pre code {
 
 pre {
   line-height: 1.5;
-  margin: auto calc(1ch - 2px);
+  margin: inherit calc(1ch - 2px);
   padding: 1ch 1ch;
   overflow-x: auto;
 }
