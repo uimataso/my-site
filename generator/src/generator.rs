@@ -19,6 +19,7 @@ pub struct Generator {
     config: Config,
     git_repo: GitRepo,
     skip: HashSet<&'static Path>,
+    gitignore: ignore::gitignore::Gitignore,
 
     all_blog: Vec<BlogEntry>,
 }
@@ -62,8 +63,17 @@ impl Generator {
         log::info!("read config from: {}", config_file.display());
         let config = Config::from_file(src_dir.join(config_file))?;
 
-        let skip = [".git", ".cspell.yaml", "README.md", "config.yaml"];
+        let skip = [
+            ".git",
+            ".gitignore",
+            ".cspell.yaml",
+            "README.md",
+            "config.yaml",
+        ];
         let skip: HashSet<_> = skip.into_iter().map(Path::new).collect();
+
+        log::info!("read gitignore");
+        let (gitignore, _err) = ignore::gitignore::Gitignore::new(src_dir.join(".gitignore"));
 
         Ok(Self {
             src_dir,
@@ -71,6 +81,7 @@ impl Generator {
             config,
             git_repo,
             skip,
+            gitignore,
             all_blog: Vec::new(),
         })
     }
@@ -130,7 +141,13 @@ impl Generator {
                 continue;
             }
 
-            if path.is_dir() {
+            let is_dir = path.is_dir();
+
+            if self.gitignore.matched(&path, is_dir).is_ignore() {
+                continue;
+            }
+
+            if is_dir {
                 self.iter_dir(&path)?;
             } else {
                 self.handle_file(rel_path)?;

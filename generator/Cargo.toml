@@ -17,6 +17,7 @@ hypertext = { version = "0.12.1", features = ["axum", "htmx"] }
 git2 = "0.20.2"
 rss = { version = "2.0.12", features = ["atom"] }
 minify-html = "0.18.1"
+ignore = "0.4.25"
 
 normalize-path = "0.2.1"
 serde = { version = "1", features = ["derive"] }
