@@ -41,7 +41,10 @@ impl Renderable for Header<'_> {
     fn render_to(&self, buffer: &mut hypertext::Buffer<hypertext::context::Node>) {
         let is_active = |link_url: &str| {
             let link_url = link_url.trim_matches('/');
-            self.active_url.is_some_and(|x| x.starts_with(link_url))
+            self.active_url.is_some_and(|x| {
+                let strip = x.strip_prefix(link_url);
+                strip.is_some_and(|s| s.chars().next().is_none_or(|c| c == '/'))
+            })
         };
 
         rsx! {
