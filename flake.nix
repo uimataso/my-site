@@ -22,20 +22,42 @@
       let
         overlays = [ (import rust-overlay) ];
         pkgs = import nixpkgs { inherit system overlays; };
+
         naersk' = pkgs.callPackage naersk { };
+        append = l: (x: x ++ l);
+        buildRustPkg =
+          {
+            name,
+            extra ? { },
+          }:
+          naersk'.buildPackage (
+            {
+              src = ./.;
+              pname = name;
+              cargoBuildOptions = append [
+                "-p"
+                name
+              ];
+              cargoTestOptions = append [
+                "-p"
+                name
+              ];
+            }
+            // extra
+          );
       in
       {
         packages = {
-          web = naersk'.buildPackage {
-            pname = "my-site-web";
-            src = ./.;
-            nativeBuildInputs = with pkgs; [ pkg-config ];
-            buildInputs = with pkgs; [ openssl ];
+          web = buildRustPkg {
+            name = "my-site-web";
+            extra = {
+              nativeBuildInputs = with pkgs; [ pkg-config ];
+              buildInputs = with pkgs; [ openssl ];
+            };
           };
 
-          generator = naersk'.buildPackage {
-            pname = "my-site-generator";
-            src = ./.;
+          generator = buildRustPkg {
+            name = "my-site-generator";
           };
         };
 
