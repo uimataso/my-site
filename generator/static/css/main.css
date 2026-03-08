@@ -59,7 +59,7 @@ a {
   text-decoration: underline;
   text-decoration-color: var(--base03);
   text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
 }
 
 a,
